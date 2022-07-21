@@ -1,9 +1,14 @@
 class Forca {
+  constructor(palavraSecreta) {
+    this.palavraSecreta = palavraSecreta;
+    console.log(palavraSecreta)
+  }
 
   letrasChutadas = [];
   vidas = 6;
   palavra = [];
   acertouPalavra = false;
+  letrasCorretas = [];
 
   chutar(letra) {
     if (letra.length > 1) {
@@ -12,12 +17,21 @@ class Forca {
       return;
     } else {
       this.letrasChutadas.push(letra);
-      verificarLetras(letra);
+      this.verificarLetras(letra);
     }
   }
 
   verificarLetras(letra) {
-    
+    if (this.palavraSecreta.includes(letra)) {
+      letrasCorretas.push(letra);
+    } else {
+      this.vidas -= 1;
+    }
+    mostrarLetrasDescobertas();
+  }
+
+  mostrarLetrasDescobertas() {
+
   }
 
   buscarEstado() {
