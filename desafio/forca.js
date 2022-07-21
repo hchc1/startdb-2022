@@ -31,6 +31,7 @@ class Forca {
   }
 
   mostraLetrasDescobertas() {
+    this.palavra = [];
     this.palavraSecreta.split('').forEach(letra => {
       if (!this.letrasCorretas.includes(letra)) {
         this.palavra.push('_');
@@ -39,12 +40,19 @@ class Forca {
       }
       return this.palavra;
     });
+    this.acertou();
+  }
+
+  acertou() {
+    const arrPalavra = this.palavraSecreta.split('');
+    arrPalavra.every((letra, index) => letra === this.palavra[index])
+      ? this.acertouPalavra = true : this.acertouPalavra = false;
   }
 
   buscarEstado() {
-    if (vidas === 0) {
+    if (this.vidas === 0) {
       return "perdeu";
-    } else if (vidas > 0 && acertouPalavra) {
+    } else if (this.vidas > 0 && this.acertouPalavra) {
       return "ganhou";
     }
     return "aguardando chute";
@@ -52,9 +60,9 @@ class Forca {
 
   buscarDadosDoJogo() {
       return {
-          letrasChutadas: [], // Deve conter todas as letras chutadas
-          vidas: 6, // Quantidade de vidas restantes
-          palavra: [] // Deve ser um array com as letras que já foram acertadas ou o valor "_" para as letras não identificadas
+          letrasChutadas: this.letrasChutadas, // Deve conter todas as letras chutadas
+          vidas: this.vidas, // Quantidade de vidas restantes
+          palavra: this.palavra // Deve ser um array com as letras que já foram acertadas ou o valor "_" para as letras não identificadas
       }
   }
 }
