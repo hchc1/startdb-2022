@@ -2,7 +2,14 @@ class Forca {
 
   chutar(letra) { }
 
-  buscarEstado() { return ""; } // Possiveis valores: "perdeu", "aguardando chute" ou "ganhou"
+  buscarEstado() {
+    if (vidas === 0) {
+      return "perdeu";
+    } else if (vidas > 0 && acertouPalavra) {
+      return "ganhou";
+    }
+    return "aguardando chute";
+  } // Possiveis valores: "perdeu", "aguardando chute" ou "ganhou"
 
   buscarDadosDoJogo() {
       return {
