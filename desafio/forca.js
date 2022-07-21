@@ -19,7 +19,7 @@ class Forca {
       this.letrasChutadas.push(letra);
       this.verificarLetras(letra);
     }
-  }
+  } // valida a entrada, chama método para verificar o chute caso o retorno seja positivo;
 
   verificarLetras(letra) {
     if (this.palavraSecreta.includes(letra)) {
@@ -28,7 +28,7 @@ class Forca {
       this.vidas -= 1;
     }
     this.mostraLetrasDescobertas();
-  }
+  } // contabiliza acertos, vidas restantes, chama método para mostrar as letras descobertas;
 
   mostraLetrasDescobertas() {
     this.palavra = [];
@@ -41,13 +41,13 @@ class Forca {
       return this.palavra;
     });
     this.acertou();
-  }
+  } // itera a palavraSecreta para apresentar a quantidade de letras e as que foram descobertas caso tenha alguma; inicia o método para validar se o jogador ganhou;
 
   acertou() {
     const arrPalavra = this.palavraSecreta.split('');
     arrPalavra.every((letra, index) => letra === this.palavra[index])
       ? this.acertouPalavra = true : this.acertouPalavra = false;
-  }
+  } // itera a palavraSecreta e compara suas letras com as descobertas pelo jogador, ao descobrir todas as letras altera o estado de acertouPalavra para validar a condição de ganhar o jogo;
 
   buscarEstado() {
     if (this.vidas === 0) {
