@@ -1,6 +1,24 @@
 class Forca {
 
-  chutar(letra) { }
+  letrasChutadas = [];
+  vidas = 6;
+  palavra = [];
+  acertouPalavra = false;
+
+  chutar(letra) {
+    if (letra.length > 1) {
+      return;
+    } else if (this.letrasChutadas.includes(letra)) {
+      return;
+    } else {
+      this.letrasChutadas.push(letra);
+      verificarLetras(letra);
+    }
+  }
+
+  verificarLetras(letra) {
+    
+  }
 
   buscarEstado() {
     if (vidas === 0) {
