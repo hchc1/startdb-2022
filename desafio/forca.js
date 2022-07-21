@@ -23,7 +23,7 @@ class Forca {
 
   verificarLetras(letra) {
     if (this.palavraSecreta.includes(letra)) {
-      letrasCorretas.push(letra);
+      this.letrasCorretas.push(letra);
     } else {
       this.vidas -= 1;
     }
@@ -59,6 +59,7 @@ class Forca {
   } // Possiveis valores: "perdeu", "aguardando chute" ou "ganhou"
 
   buscarDadosDoJogo() {
+    this.mostraLetrasDescobertas();
       return {
           letrasChutadas: this.letrasChutadas, // Deve conter todas as letras chutadas
           vidas: this.vidas, // Quantidade de vidas restantes
