@@ -27,11 +27,18 @@ class Forca {
     } else {
       this.vidas -= 1;
     }
-    mostrarLetrasDescobertas();
+    this.mostraLetrasDescobertas();
   }
 
-  mostrarLetrasDescobertas() {
-
+  mostraLetrasDescobertas() {
+    this.palavraSecreta.split('').forEach(letra => {
+      if (!this.letrasCorretas.includes(letra)) {
+        this.palavra.push('_');
+      } else {
+        this.palavra.push(letra);
+      }
+      return this.palavra;
+    });
   }
 
   buscarEstado() {
